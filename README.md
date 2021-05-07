@@ -1,6 +1,6 @@
 # Calico workshop on EKS
 
-<img src="img/calico-on-eks.png" alt="Calico on EKS" width="25%"/>
+<img src="img/calico-on-eks.png" alt="Calico on EKS" width="30%"/>
 
 ## Workshop objectives
 

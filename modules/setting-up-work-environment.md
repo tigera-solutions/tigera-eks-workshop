@@ -34,22 +34,13 @@ To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `C
 
     >For convenience consider configuring [autocompletion for kubectl](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/#enable-kubectl-autocompletion).
 
-2. When using corporate AWS account, export your user's [AWS Access Key/ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) via environment variable. If you already have them under your `~/.aws/credentials` then you can skip this step.
-
-    >It is recommended to use your personal AWS account which would have full access to AWS resources. If using a corporate AWS account, make sure to check with account administrators to provide you with sufficient permissions to create and manage EKS clusters and Load Balancer resources.
-
-    ```bash
-    export AWS_ACCESS_KEY_ID="<your_accesskey_id>"
-    export AWS_SECRET_ACCESS_KEY="<your_secretkey>"
-    ```
-
-3. Download this repo into your environment:
+2. Download this repo into your environment:
 
     ```bash
     git clone https://github.com/tigera-solutions/tigera-eks-workshop  
     ```
 
-4. Configure AMI role for Cloud9 workspace.
+3. Configure AMI role for Cloud9 workspace.
 
     >This is necessary when using Cloud9 environment which has an IAM role automatically associated with it. You need to replace this role with a custom IAM role that provides necessary permissions to build EKS cluster so that you can work with the cluster using `kubectl` CLI.
 

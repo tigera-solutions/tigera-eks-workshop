@@ -26,7 +26,7 @@
     rm -vf $HOME/.aws/credentials
 
     # verify that IAM role is configured correctly. IAM_ROLE was set in previous module to tigera-workshop-admin.
-    aws --profile default sts get-caller-identity --query Arn | grep $IAM_ROLE -q && echo "IAM role valid" || echo "IAM role NOT valid"
+    aws sts get-caller-identity --query Arn | grep $IAM_ROLE -q && echo "IAM role valid" || echo "IAM role NOT valid"
     ```
 
 2. Create EKS manifest.

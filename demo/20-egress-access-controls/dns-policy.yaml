@@ -22,3 +22,6 @@ spec:
     destination:
       domains:
       - '*.twilio.com'
+  - action: Pass
+    source: {}
+    destination: {}

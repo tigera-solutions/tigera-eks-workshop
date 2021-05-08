@@ -2,11 +2,11 @@
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: security.centos-to-frontend
+  name: platform.centos-to-frontend
   namespace: dev
 spec:
-  tier: security
-  order: 90
+  tier: platform
+  order: 100
   selector: app == "centos"
   types:
   - Egress

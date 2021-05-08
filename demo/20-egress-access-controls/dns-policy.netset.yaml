@@ -19,3 +19,6 @@ spec:
   - action: Allow
     destination:
       selector: type == "external-apis"
+  - action: Pass
+    source: {}
+    destination: {}

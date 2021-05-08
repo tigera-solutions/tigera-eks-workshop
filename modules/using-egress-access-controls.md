@@ -43,6 +43,11 @@
     a. Apply a policy to allow access to `api.twilio.com` endpoint using DNS rule.
 
     ```bash
+    # deploy dns policy
+    kubectl apply -f demo/20-egress-access-controls/dns-policy.yaml
+
+    # test egress access to api.twilio.com
+    kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://api.twilio.com 2>/dev/null | grep -i http'
     ```
 
     b. Edit the policy to use a `NetworkSet` instead of inline DNS rule.

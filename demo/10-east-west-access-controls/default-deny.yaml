@@ -4,7 +4,7 @@ metadata:
   name: default-deny
 spec:
   order: 2000
-  selector: "projectcalico.org/namespace == 'dev'"
+  selector: "projectcalico.org/namespace in {'dev','default'}"
   types:
   - Ingress
   - Egress

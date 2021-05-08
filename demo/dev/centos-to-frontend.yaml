@@ -1,0 +1,20 @@
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: security.centos-to-frontend
+  namespace: dev
+spec:
+  tier: security
+  order: 90
+  selector: app == "centos"
+  types:
+  - Egress
+  egress:
+  - action: Allow
+    protocol: TCP
+    source: {}
+    destination:
+      selector: app == "frontend"
+      namespaceSelector: projectcalico.org/name == "default"
+  - action: Pass

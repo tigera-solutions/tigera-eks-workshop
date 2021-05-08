@@ -32,7 +32,7 @@ In this workshop we are going to focus on these main use cases:
   - most common environments are Cloud9, Mac OS, Linux, Windows WSL2
 - Git
 
->This workshop has been designed to use [AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/tutorial.html) instance as a work environment. If you're familiar with the tools listed in prerequisites section, feel free to use a work environment of your choosing.
+>This workshop has been designed to use [AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/tutorial.html) instance as a workspace environment. If you're familiar with the tools listed in prerequisites section, feel free to use a workspace environment you are most comfortable with.
 
 ## Modules
 
@@ -41,17 +41,18 @@ In this workshop we are going to focus on these main use cases:
 - [Module 3: Joining EKS cluster to Calico Cloud](modules/joining-eks-to-calico-cloud.md)
 - [Module 4: Configuring demo applications](modules/configuring-demo-apps.md)
 - [Module 5: Securing East-West traffic](modules/securing-east-west-traffic.md)
-- [Module 6: Using egress access controls](modules/)
-- [Module 7: Securing EKS hosts](modules/)
+- [Module 6: Using egress access controls](modules/using-egress-access-controls.md)
+- [Module 7: Securing EKS hosts](modules/securing-heps.md)
 - [Module 8: Using observability tools](modules/)
 - [Module 9: Using compliance reports](modules/)
 
 ## Cleanup
 
-1. Delete any `loadbalancer` service deployed for the EKS cluster
+1. Delete application stack to clean up any `loadbalancer` services.
 
     ```bash
-    kubectl delete -f manager-lb.yaml
+    kubectl delete -f demo/dev/app.manifests.yaml
+    kubectl delete -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/kubernetes-manifests.yaml
     ```
 
 2. Delete EKS cluster

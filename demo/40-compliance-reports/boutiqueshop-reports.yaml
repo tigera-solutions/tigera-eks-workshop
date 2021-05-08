@@ -1,0 +1,41 @@
+apiVersion: projectcalico.org/v3
+kind: GlobalReport
+metadata:
+  name: boutiqueshop-inventory
+  labels:
+    deployment: production
+spec:
+  reportType: inventory
+  endpoints:
+    namespaces:
+      names: ["default"]
+  schedule: '*/30 * * * *'
+---
+
+apiVersion: projectcalico.org/v3
+kind: GlobalReport
+metadata:
+  name: boutiqueshop-network-access
+  labels:
+    deployment: production
+spec:
+  reportType: network-access
+  endpoints:
+    namespaces:
+      names: ["default"]
+  schedule: '*/30 * * * *'
+---
+
+apiVersion: projectcalico.org/v3
+kind: GlobalReport
+metadata:
+  name: boutiqueshop-policy-audit
+  labels:
+    deployment: production
+spec:
+  reportType: policy-audit
+  endpoints:
+    namespaces:
+      names: ["default"]
+  schedule: '*/30 * * * *'
+---

@@ -19,7 +19,7 @@
     In order to explicitly allow workloads to connect to the Kubernetes DNS component, we are going to implement a policy that controls such traffic.
 
     ```bash
-    kubectl apply -f demo/tiers/calico.allow-kube-dns.yaml
+    kubectl apply -f demo/10-east-west-access-controls/allow-kube-dns.yaml
     ```
 
 3. Deploy demo applications.
@@ -28,8 +28,18 @@
     # deploy dev app stack
     kubectl apply -f demo/dev/app.manifests.yaml
 
-    # deploy hipstershop app stack
+    # deploy boutiqueshop app stack
     kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/kubernetes-manifests.yaml
     ```
 
-[Next -> Module 4](../modules/deploy-app-stacks.md)
+4. Deploy compliance reports.
+
+    >The reports will be needed for one of the later labs.
+
+    ```bash
+    kubectl apply -f demo/40-compliance-reports/daily-cis-results.yaml
+    kubectl apply -f demo/40-compliance-reports/cluster-reports.yaml
+    kubectl apply -f demo/40-compliance-reports/boutiqueshop-reports.yaml
+    ```
+
+[Next -> Module 5](../modules/securing-east-west-traffic.md)

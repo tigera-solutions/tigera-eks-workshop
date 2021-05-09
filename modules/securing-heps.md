@@ -49,7 +49,15 @@ Calico network policies not only can secure pod to pod communications but also c
     kubectl apply -f demo/30-secure-hep/felixconfiguration.yaml
     ```
 
-3. Implement a Calico policy to control access to the service of NodePort type.
+3. Implement Calico policy to allow access to the `kubelet` port.
+
+    If you want to use `kubectl exec` command when you enable HEPs in your Kubernetes cluster, you need to allow access to `kubelet` port.
+
+    ```bash
+    kubectl apply -f demo/30-secure-hep/kubelet-access.yaml
+    ```
+
+4. Implement a Calico policy to control access to the service of NodePort type.
 
     Deploy a policy that only allows access to the node port from the Cloud9 instance.
 
@@ -70,7 +78,7 @@ Calico network policies not only can secure pod to pod communications but also c
 
     >Note that in order to control access to the NodePort service, you need to enable `preDNAT` and `applyOnForward` policy settings.
 
-4. Implement a Calico policy to control access to the SSH port on EKS hosts.
+5. Implement a Calico policy to control access to the SSH port on EKS hosts.
 
     ```bash
     # get public IP of Cloud9 instance

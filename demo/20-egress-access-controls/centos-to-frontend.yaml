@@ -12,6 +12,11 @@ spec:
   - Egress
   egress:
   - action: Allow
+    protocol: UDP
+    destination:
+      ports:
+      - 53
+  - action: Allow
     protocol: TCP
     source: {}
     destination:

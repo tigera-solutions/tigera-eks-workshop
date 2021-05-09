@@ -16,7 +16,7 @@ To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `C
     - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
     - [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html)
     - [EKS kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
-    - `jq` utility
+    - `jq` and `netcat` utilities
 
     Check whether these tools already present in your environment. If not, install the missing ones.
 
@@ -25,11 +25,12 @@ To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `C
     aws --version
     git --version
     eksctl version
-    kubectl version --client
+    kubectl version --short --client
 
-    # install jq
-    sudo yum install jq -y
+    # install jq and netcat
+    sudo yum install jq nc -y
     jq --version
+    nc --version
     ```
 
     >For convenience consider configuring [autocompletion for kubectl](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/#enable-kubectl-autocompletion).
@@ -44,7 +45,16 @@ To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `C
 
     >This is necessary when using Cloud9 environment which has an IAM role automatically associated with it. You need to replace this role with a custom IAM role that provides necessary permissions to build EKS cluster so that you can work with the cluster using `kubectl` CLI.
 
-    a. Create IAM role.
+    a. When using Cloud9 instance, by default the instance has AWS managed temporary credentials that provide limited permissions to AWS resources. In order to manage IAM resources from the Cloud9 workspace, export your user's [AWS Access Key/ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) via environment variables. If you already have them under your `~/.aws/credentials` then you can skip this step.
+
+    >It is recommended to use your personal AWS account which would have full access to AWS resources. If using a corporate AWS account, make sure to check with account administrators to provide you with sufficient permissions to create and manage EKS clusters and Load Balancer resources.
+
+    ```bash
+    export AWS_ACCESS_KEY_ID="<your_accesskey_id>"
+    export AWS_SECRET_ACCESS_KEY="<your_secretkey>"
+    ```
+
+    b. Create IAM role.
 
     ```bash
     # go to cloned repo
@@ -64,7 +74,7 @@ To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `C
     aws iam add-role-to-instance-profile --role-name $IAM_ROLE --instance-profile-name $IAM_ROLE
     ```
 
-    b. Assign the IAM role to Cloud9 workspace.
+    c. Assign the IAM role to Cloud9 workspace.
 
     - Click the grey circle button (in top right corner) and select `Manage EC2 Instance`.
 
@@ -74,7 +84,13 @@ To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `C
 
         ![Modify IAM role](../img/modify-iam-role.png)
 
-    c. Update IAM settings for your workspace.
+    d. Update IAM settings for your workspace.
+
+    - Remove locally stored `~/.aws/credentials`
+
+        ```bash
+        rm -vf ~/.aws/credentials
+        ```
 
     - Return to your Cloud9 workspace and click the gear icon (in top right corner)
     - Select AWS SETTINGS
@@ -82,5 +98,11 @@ To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `C
     - Close the Preferences tab
 
         ![Cloud9 AWS settings](../img/cloud9-aws-settings.png)
+
+    e. Unset `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to allow Cloud9 instance to use the configured IAM role.
+
+    ```bash
+    unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
+    ```
 
 [Next -> Module 2](../modules/creating-eks-cluster.md)

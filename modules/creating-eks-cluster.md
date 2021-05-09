@@ -22,9 +22,6 @@
     aws configure set default.region ${AWS_REGION}
     aws configure get default.region
 
-    # remove ~/.aws/credentials file if it exists
-    rm -vf $HOME/.aws/credentials
-
     # verify that IAM role is configured correctly. IAM_ROLE was set in previous module to tigera-workshop-admin.
     aws sts get-caller-identity --query Arn | grep $IAM_ROLE -q && echo "IAM role valid" || echo "IAM role NOT valid"
     ```
@@ -54,6 +51,9 @@
       instanceType: "t3.large"
       ssh:
         enableSsm: true
+        # uncomment lines below to allow SSH access to the nodes using existing EC2 key pair
+        #publicKeyName: ec2_dev_key
+        #allow: true
 
     # enable all of the control plane logs:
     cloudWatch:

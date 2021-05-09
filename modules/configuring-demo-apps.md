@@ -42,4 +42,14 @@
     kubectl apply -f demo/40-compliance-reports/boutiqueshop-reports.yaml
     ```
 
+5. Deploy global alerts.
+
+    >The alerts will be explored in a later lab.
+
+    ```bash
+    kubectl apply -f demo/50-alerts/globalnetworkset.changed.yaml
+    kubectl apply -f demo/50-alerts/unsanctioned.dns.access.yaml
+    kubectl apply -f demo/50-alerts/unsanctioned.lateral.access.yaml
+    ```
+
 [Next -> Module 5](../modules/securing-east-west-traffic.md)

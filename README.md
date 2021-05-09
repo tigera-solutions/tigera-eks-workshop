@@ -30,7 +30,8 @@ In this workshop we are going to focus on these main use cases:
 - AWS account and credentials to manage AWS resources
 - Terminal or Command Line console to work with AWS resources and EKS cluster
   - most common environments are Cloud9, Mac OS, Linux, Windows WSL2
-- Git
+- `Git`
+- `netcat`
 
 >This workshop has been designed to use [AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/tutorial.html) instance as a workspace environment. If you're familiar with the tools listed in prerequisites section, feel free to use a workspace environment you are most comfortable with.
 
@@ -58,7 +59,7 @@ In this workshop we are going to focus on these main use cases:
 2. Delete EKS cluster
 
     ```bash
-    # eksctl delete cluster --name cluster-name
+    eksctl delete cluster --name tigera-workshop
     ```
 
 3. Delete Cloud9 instance

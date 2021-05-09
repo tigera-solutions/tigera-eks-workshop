@@ -1,3 +1,4 @@
+---
 apiVersion: projectcalico.org/v3
 kind: GlobalReport
 metadata:
@@ -10,8 +11,8 @@ spec:
     namespaces:
       names: ["default"]
   schedule: '*/30 * * * *'
----
 
+---
 apiVersion: projectcalico.org/v3
 kind: GlobalReport
 metadata:
@@ -24,18 +25,18 @@ spec:
     namespaces:
       names: ["default"]
   schedule: '*/30 * * * *'
----
 
-apiVersion: projectcalico.org/v3
-kind: GlobalReport
-metadata:
-  name: boutiqueshop-policy-audit
-  labels:
-    deployment: production
-spec:
-  reportType: policy-audit
-  endpoints:
-    namespaces:
-      names: ["default"]
-  schedule: '*/30 * * * *'
----
+# uncomment policy-audit report if you configured audit logs for EKS cluster https://docs.tigera.io/compliance/compliance-reports/compliance-managed-cloud#enable-audit-logs-in-eks
+# ---
+# apiVersion: projectcalico.org/v3
+# kind: GlobalReport
+# metadata:
+#   name: boutiqueshop-policy-audit
+#   labels:
+#     deployment: production
+# spec:
+#   reportType: policy-audit
+#   endpoints:
+#     namespaces:
+#       names: ["default"]
+#   schedule: '*/30 * * * *'

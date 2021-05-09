@@ -44,6 +44,9 @@ Calico network policies not only can secure pod to pod communications but also c
     kubectl patch kubecontrollersconfiguration.p default -p '{"spec": {"controllers": {"node": {"hostEndpoint": {"autoCreate": "Enabled"}}}}}'
     # verify that each node got a HostEndpoint resource created
     kubectl get hostendpoints
+
+    # apply FelixConfiguration with modified failsafes
+    kubectl apply -f demo/30-secure-hep/felixconfiguration.yaml
     ```
 
 3. Implement a Calico policy to control access to the service of NodePort type.

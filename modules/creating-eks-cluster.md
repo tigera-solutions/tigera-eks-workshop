@@ -26,7 +26,19 @@
     aws sts get-caller-identity --query Arn | grep $IAM_ROLE -q && echo "IAM role valid" || echo "IAM role NOT valid"
     ```
 
-2. Create EKS manifest.
+2. Create AWS key pair.
+
+    In order to test host port protection with Calico network policy we will create EKS nodes with SSH access. For that we need to create EC2 key pair.
+
+    ```bash
+    export KEYPAIR_NAME='<set_keypair_name>'
+    # create EC2 key pair
+    aws ec2 create-key-pair --key-name $KEYPAIR_NAME --query "KeyMaterial" --output text > $KEYPAIR_NAME.pem
+    # set file permission
+    chmod 400 $KEYPAIR_NAME.pem
+    ```
+
+3. Create EKS manifest.
 
     ```bash
     # create EKS manifest file
@@ -52,8 +64,8 @@
       ssh:
         enableSsm: true
         # uncomment lines below to allow SSH access to the nodes using existing EC2 key pair
-        #publicKeyName: ec2_dev_key
-        #allow: true
+        publicKeyName: ${KEYPAIR_NAME}
+        allow: true
 
     # enable all of the control plane logs:
     cloudWatch:
@@ -62,13 +74,13 @@
     EOF
     ```
 
-3. Use `eksctl` to create EKS cluster.
+4. Use `eksctl` to create EKS cluster.
 
     ```bash
     eksctl create cluster -f configs/tigera-workshop.yaml
     ```
 
-4. View EKS cluster.
+5. View EKS cluster.
 
     Once cluster is created you can list it using `eksctl`.
 
@@ -76,7 +88,7 @@
     eksctl get cluster tigera-workshop
     ```
 
-5. Test access to EKS cluster with `kubectl`
+6. Test access to EKS cluster with `kubectl`
 
     Once the EKS cluster is provisioned with `eksctl` tool, the `kubeconfig` file would be placed into `~/.kube/config` path. The `kubectl` CLI looks for `kubeconfig` at `~/.kube/config` path or into `KUBECONFIG` env var.
 

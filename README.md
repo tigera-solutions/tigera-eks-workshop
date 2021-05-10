@@ -44,8 +44,9 @@ In this workshop we are going to focus on these main use cases:
 - [Module 5: Securing East-West traffic](modules/securing-east-west-traffic.md)
 - [Module 6: Using egress access controls](modules/using-egress-access-controls.md)
 - [Module 7: Securing EKS hosts](modules/securing-heps.md)
-- [Module 8: Using observability tools](modules/)
-- [Module 9: Using compliance reports](modules/)
+- [Module 8: Using observability tools](modules/using-observability-tools.md)
+- [Module 9: Using compliance reports](modules/using-compliance-reports.md)
+- [Module 10: Using alerts](modules/using-alerts.md)
 
 ## Cleanup
 

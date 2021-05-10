@@ -4,13 +4,15 @@
 
 ## Choose between local environment and Cloud9 instance
 
-The simplest ways to configure your working environment is to either use your local environment, i.e. laptop, desktop computer, etc., or create an [AWS Cloud9 environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/tutorial.html) from which you can run all necessary commands in this workshop. If you're familiar with tools like `SSH client`, `terraforrm`, and feel comfortable using your local shell, then go to the next section.
-
-To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `Cloud9`. Create environment in the desired region. You can use all the default settings when creating the environment, but consider using `t3.small` instance as the `t2.micro` instance could be a bit slow. It usually takes only a few minutes to get the Cloud9 instance running.
+The simplest ways to configure your working environment is to either use your local environment, i.e. laptop, desktop computer, etc., or create an [AWS Cloud9 environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/tutorial.html) from which you can run all necessary commands in this workshop. If you're familiar with tools like `SSH client`, `git`, `jq`, `netcat` and feel comfortable using your local shell, then go to `setp 2` in the next section.
 
 ## Steps
 
-1. Ensure your environment has these tools:
+1. Create Cloud9 workspace environment.
+
+    To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `Cloud9`. Create environment in the desired region. You can use all the default settings when creating the environment, but consider using `t3.small` instance as the `t2.micro` instance could be a bit slow. You can name it as `tigera-workspace` to quickly find it in case you have many `Cloud9` instances. It usually takes only a few minutes to get the Cloud9 instance running.
+
+2. Ensure your environment has these tools:
 
     - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
     - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -35,13 +37,13 @@ To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `C
 
     >For convenience consider configuring [autocompletion for kubectl](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/#enable-kubectl-autocompletion).
 
-2. Download this repo into your environment:
+3. Download this repo into your environment:
 
     ```bash
     git clone https://github.com/tigera-solutions/tigera-eks-workshop  
     ```
 
-3. Configure AMI role for Cloud9 workspace.
+4. Configure AMI role for Cloud9 workspace.
 
     >This is necessary when using Cloud9 environment which has an IAM role automatically associated with it. You need to replace this role with a custom IAM role that provides necessary permissions to build EKS cluster so that you can work with the cluster using `kubectl` CLI.
 

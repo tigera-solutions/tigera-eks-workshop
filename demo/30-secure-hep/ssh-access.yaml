@@ -15,9 +15,9 @@ spec:
   # Allow only SSH port access.
   - action: Allow
     protocol: TCP
-    # source:
-    #   nets:
-    #   - ${CLOUD9_IP}
+    source:
+      nets:
+      - ${CLOUD9_IP}
     destination:
       ports:
       - "22"

@@ -28,6 +28,8 @@ Calico network policies not only can secure pod to pod communications but also c
     nc -zv $PUB_IP 30080
     ```
 
+    >It can take a moment for the node port to become accessible.
+
     If the SSH port was configured correctly, the `nc` command should show you that the port is open.
 
 2. Enable `HostEndpoint` auto-creation for EKS cluster.
@@ -44,9 +46,6 @@ Calico network policies not only can secure pod to pod communications but also c
     kubectl patch kubecontrollersconfiguration.p default -p '{"spec": {"controllers": {"node": {"hostEndpoint": {"autoCreate": "Enabled"}}}}}'
     # verify that each node got a HostEndpoint resource created
     kubectl get hostendpoints
-
-    # apply FelixConfiguration with modified failsafes
-    kubectl apply -f demo/30-secure-hep/felixconfiguration.yaml
     ```
 
 3. Implement Calico policy to allow access to the `kubelet` port.
@@ -80,7 +79,12 @@ Calico network policies not only can secure pod to pod communications but also c
 
 5. Implement a Calico policy to control access to the SSH port on EKS hosts.
 
+    When dealing with SSH and platform required ports, Calico provides a fail safe mechanism to manage such posrts so that you don't lock yourself out of the node by accident. Once you configure and test host targeting policy, you can selectively disable fail safe ports.
+
     ```bash
+    # deploy FelixConfiguration to disable fail safe for SSH port
+    kubectl apply -f demo/30-secure-hep/felixconfiguration.yaml
+
     # get public IP of Cloud9 instance
     CLOUD9_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
     # allow SSH access to EKS nodes only from the Cloud9 instance

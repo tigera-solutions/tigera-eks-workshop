@@ -14,7 +14,7 @@
 
     Open `Alerts` view to see all triggered alerts in the cluster. Review the generated alerts. 
 
-    ![alerts view](../img/alerts.png)
+    ![alerts view](../img/alerts-view.png)
 
     You can also review the alerts configuration and templates by navigating to alerts configuration in the top right corner.
 

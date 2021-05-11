@@ -117,7 +117,7 @@
     kubectl apply -f demo/10-security-controls/feodotracker.threatfeedyaml
 
     # try to ping any of the IPs in from the feodo tracker list
-    IP='<feodo_ip>'
+    IP=$(kubectl get globalnetworkset threatfeed.feodo-tracker -ojson | jq .spec.nets[0] | sed -e 's/^"//' -e 's/"$//' -e 's/\/32//')
     kubectl -n dev exec -t centos -- sh -c "ping -c1 $IP"
     ```
 

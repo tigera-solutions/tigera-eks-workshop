@@ -63,11 +63,18 @@ In this workshop we are going to focus on these main use cases:
     eksctl delete cluster --name tigera-workshop
     ```
 
-3. Delete Cloud9 instance.
+3. Delete EC2 Key Pair.
+
+    ```bash
+    export KEYPAIR_NAME='<set_keypair_name>'
+    aws ec2 delete-key-pair --key-name $KEYPAIR_NAME
+    ```
+
+4. Delete Cloud9 instance.
 
     Navigate to `AWS Console` > `Services` > `Cloud9` and remove your workspace environment, e.g. `tigera-workshop`.
 
-4. Delete IAM role and user created for this workshop.
+5. Delete IAM role and user created for this workshop.
 
     ```bash
     # use your local shell to set AWS credentials

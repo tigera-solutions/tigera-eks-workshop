@@ -64,7 +64,7 @@
 
     ```bash
     # verify that the EKS cluster has logging enabled and contains 'audit' log type
-    eksctl get cluster tigera-workshop -ojson | jq -r '[].Logging'
+    eksctl get cluster tigera-workshop -ojson | jq .[].Logging
 
     # set CloudWatch resource name
     CLUSTER_NAME='tigera-workshop'
@@ -73,6 +73,30 @@
     LOG_STREAM_PREFIX='kube-apiserver-audit-'
     # configure LogCollector resource with EKS values
     kubectl patch logcollector tigera-secure --type merge -p "{\"spec\":{\"additionalSources\":{\"eksCloudwatchLog\":{\"fetchInterval\":60,\"groupName\":\"$CLOUDWATCH_GROUP_NAME\",\"region\":\"$AWS_REGION\",\"streamPrefix\":\"$LOG_STREAM_PREFIX\"}}}}"
+    ```
+
+    c. Configure authentication between Calico and CloudWatch service.
+
+    Create secret with IAM user credentials.
+
+    ```bash
+    cat > configs/cloudwatch-auth.yaml << EOF
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: tigera-eks-log-forwarder-secret
+      namespace: tigera-operator
+    type: Opaque
+    data:
+      aws-id: $(echo -n $ACCESS_KEY_ID | base64 -w0)
+      aws-key: $(echo -n $ACCESS_KEY_SECRET | base64 -w0)
+    EOF
+    ```
+
+    Deploy secret to the cluster.
+
+    ```bash
+    kubectl apply -f configs/cloudwatch-auth.yaml
     ```
 
 [Next -> Module 4](../modules/configuring-demo-apps.md)

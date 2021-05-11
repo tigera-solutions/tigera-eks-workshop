@@ -12,6 +12,7 @@
     export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
     export AZS=($(aws ec2 describe-availability-zones --query 'AvailabilityZones[].ZoneName' --output text --region $AWS_REGION))
     EKS_VERSION="1.19"
+    IAM_ROLE='tigera-workshop-admin'
     
     # check if AWS_REGION is configured
     test -n "$AWS_REGION" && echo AWS_REGION is "$AWS_REGION" || echo AWS_REGION is not set
@@ -25,6 +26,8 @@
     # verify that IAM role is configured correctly. IAM_ROLE was set in previous module to tigera-workshop-admin.
     aws sts get-caller-identity --query Arn | grep $IAM_ROLE -q && echo "IAM role valid" || echo "IAM role NOT valid"
     ```
+
+    >Do not proceed if the role is `NOT` valid, but rather go back and review the configuration steps in previous module. The proper role configuration is required for Cloud9 instance in order to use `kubectl` CLI with EKS cluster.
 
 2. Create AWS key pair.
 

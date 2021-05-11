@@ -88,18 +88,18 @@ The simplest ways to configure your working environment is to either use your lo
 
     d. Update IAM settings for your workspace.
 
-    - Remove locally stored `~/.aws/credentials`
-
-        ```bash
-        rm -vf ~/.aws/credentials
-        ```
-
     - Return to your Cloud9 workspace and click the gear icon (in top right corner)
     - Select AWS SETTINGS
     - Turn off AWS managed temporary credentials
     - Close the Preferences tab
 
         ![Cloud9 AWS settings](../img/cloud9-aws-settings.png)
+
+    - Remove locally stored `~/.aws/credentials`
+
+        ```bash
+        rm -vf ~/.aws/credentials
+        ```
 
     e. Unset `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to allow Cloud9 instance to use the configured IAM role.
 

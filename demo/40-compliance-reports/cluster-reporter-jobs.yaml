@@ -328,6 +328,10 @@ spec:
           defaultMode: 420
           secretName: <COMPLIANCE_REPORTER_TOKEN>
 
+####################################################################
+# uncomment reporter definition below if you configured CloudWatch connection for Calico LogCollector
+# see: https://docs.tigera.io/compliance/compliance-reports/compliance-managed-cloud#enable-audit-logs-in-eks
+####################################################################
 # ---
 # apiVersion: batch/v1
 # kind: Job

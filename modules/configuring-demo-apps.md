@@ -39,7 +39,6 @@
     ```bash
     kubectl apply -f demo/40-compliance-reports/daily-cis-results.yaml
     kubectl apply -f demo/40-compliance-reports/cluster-reports.yaml
-    kubectl apply -f demo/40-compliance-reports/boutiqueshop-reports.yaml
     ```
 
 5. Deploy global alerts.

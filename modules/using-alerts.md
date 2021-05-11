@@ -1,4 +1,4 @@
-# Using alerts
+# Module 10: Using alerts
 
 **Goal:** Use global alerts to notify security and operations teams about unsanctioned or suspicious activity.
 

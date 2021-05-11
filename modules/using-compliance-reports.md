@@ -1,4 +1,4 @@
-# Using compliance reports
+# Module 9: Using compliance reports
 
 **Goal:** Use global reports to satisfy compliance requirementes.
 

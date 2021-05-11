@@ -1,4 +1,4 @@
-# Securing EKS hosts
+# Module 7: Securing EKS hosts
 
 **Goal:** Secure EKS hosts ports with network policies.
 
@@ -48,15 +48,7 @@ Calico network policies not only can secure pod to pod communications but also c
     kubectl get hostendpoints
     ```
 
-3. Implement Calico policy to allow access to the `kubelet` port.
-
-    If you want to use `kubectl exec` command when you enable HEPs in your Kubernetes cluster, you need to allow access to `kubelet` port.
-
-    ```bash
-    kubectl apply -f demo/30-secure-hep/kubelet-access.yaml
-    ```
-
-4. Implement a Calico policy to control access to the service of NodePort type.
+3. Implement a Calico policy to control access to the service of NodePort type.
 
     Deploy a policy that only allows access to the node port from the Cloud9 instance.
 
@@ -77,7 +69,7 @@ Calico network policies not only can secure pod to pod communications but also c
 
     >Note that in order to control access to the NodePort service, you need to enable `preDNAT` and `applyOnForward` policy settings.
 
-5. Implement a Calico policy to control access to the SSH port on EKS hosts.
+4. *[Bonus task]* Implement a Calico policy to control access to the SSH port on EKS hosts.
 
     When dealing with SSH and platform required ports, Calico provides a fail safe mechanism to manage such posrts so that you don't lock yourself out of the node by accident. Once you configure and test host targeting policy, you can selectively disable fail safe ports.
 

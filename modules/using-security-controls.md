@@ -112,9 +112,9 @@
 
     ```bash
     # deploy feodo tracker threatfeed
-    kubectl apply -f demo/10-security-controls/feodotracker.threatfeedyaml
+    kubectl apply -f demo/10-security-controls/feodotracker.threatfeed.yaml
     # deploy network policy that uses the threadfeed
-    kubectl apply -f demo/10-security-controls/feodotracker.threatfeedyaml
+    kubectl apply -f demo/10-security-controls/feodo-block-policy.yaml
 
     # try to ping any of the IPs in from the feodo tracker list
     IP=$(kubectl get globalnetworkset threatfeed.feodo-tracker -ojson | jq .spec.nets[0] | sed -e 's/^"//' -e 's/"$//' -e 's/\/32//')

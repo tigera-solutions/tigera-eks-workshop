@@ -1,3 +1,4 @@
+---
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
@@ -12,3 +13,4 @@ spec:
   - action: Deny
     destination:
       selector: threatfeed == 'feodo'
+  - action: Pass

@@ -19,7 +19,7 @@
     In order to explicitly allow workloads to connect to the Kubernetes DNS component, we are going to implement a policy that controls such traffic.
 
     ```bash
-    kubectl apply -f demo/10-east-west-access-controls/allow-kube-dns.yaml
+    kubectl apply -f demo/10-security-controls/allow-kube-dns.yaml
     ```
 
 3. Deploy demo applications.
@@ -51,4 +51,4 @@
     kubectl apply -f demo/50-alerts/unsanctioned.lateral.access.yaml
     ```
 
-[Next -> Module 5](../modules/securing-east-west-traffic.md)
+[Next -> Module 5](../modules/using-security-controls.md)

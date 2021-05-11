@@ -41,7 +41,7 @@ In this workshop we are going to focus on these main use cases:
 - [Module 2: Creating EKS cluster](modules/creating-eks-cluster.md)
 - [Module 3: Joining EKS cluster to Calico Cloud](modules/joining-eks-to-calico-cloud.md)
 - [Module 4: Configuring demo applications](modules/configuring-demo-apps.md)
-- [Module 5: Securing East-West traffic](modules/securing-east-west-traffic.md)
+- [Module 5: Using security controls](modules/using-security-controls.md)
 - [Module 6: Using egress access controls](modules/using-egress-access-controls.md)
 - [Module 7: Securing EKS hosts](modules/securing-heps.md)
 - [Module 8: Using observability tools](modules/using-observability-tools.md)

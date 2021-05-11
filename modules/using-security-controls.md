@@ -1,6 +1,6 @@
-# Module 5: Securing East-West traffic
+# Module 5: Using security controls
 
-**Goal:** Segment connections within Kubernetes cluster to protect East-West traffic.
+**Goal:** Leverage network policies to segment connections within Kubernetes cluster and prevent known bad actors from accessing the workloads.
 
 ## Steps
 
@@ -45,7 +45,7 @@
     >Staged `default-deny` policy is a good way of catching any traffic that is not explicitly allowed by a policy without explicitly blocking it.
 
     ```bash
-    kubectl apply -f demo/10-east-west-access-controls/staged.default-deny.yaml
+    kubectl apply -f demo/10-security-controls/staged.default-deny.yaml
     ```
 
     You should be able to view the potential affect of the staged `default-deny` policy if you navigate to the `Dashboard` view in the Enterprise Manager UI and look at the `Packets by Policy` histogram.
@@ -71,7 +71,7 @@
 
     ```bash
     # apply enforcing default-deny policy manifest
-    kubectl apply -f demo/10-east-west-access-controls/default-deny.yaml
+    kubectl apply -f demo/10-security-controls/default-deny.yaml
     ```
 
 4. Test connectivity with policieis in place.
@@ -104,6 +104,21 @@
 
     # test connectivity from default namespace to the Internet
     kubectl exec -it $(kubectl get po -l app=loadgenerator -ojsonpath='{.items[0].metadata.name}') -- sh -c 'curl -m3 -sI www.google.com 2>/dev/null | grep -i http'
+    ```
+
+5. Protect workloads from known bad actors.
+
+    Calico offers `GlobalThreatfeed` resource to prevent known bad actors from accessing Kubernetes pods.
+
+    ```bash
+    # deploy feodo tracker threatfeed
+    kubectl apply -f demo/10-security-controls/feodotracker.threatfeedyaml
+    # deploy network policy that uses the threadfeed
+    kubectl apply -f demo/10-security-controls/feodotracker.threatfeedyaml
+
+    # try to ping any of the IPs in from the feodo tracker list
+    IP='<feodo_ip>'
+    kubectl -n dev exec -t centos -- sh -c "ping -c1 $IP"
     ```
 
 [Next -> Module 6](../modules/using-egress-access-controls.md)

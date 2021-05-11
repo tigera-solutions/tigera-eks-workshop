@@ -74,20 +74,12 @@ In this workshop we are going to focus on these main use cases:
 
     Navigate to `AWS Console` > `Services` > `Cloud9` and remove your workspace environment, e.g. `tigera-workshop`.
 
-5. Delete IAM role and user created for this workshop.
+5. Delete IAM role created for this workshop.
 
     ```bash
     # use your local shell to set AWS credentials
     export AWS_ACCESS_KEY_ID="<your_accesskey_id>"
     export AWS_SECRET_ACCESS_KEY="<your_secretkey>"
-
-    # delete IAM user
-    IAM_USER='tigera-workshop-cloudwatch-reader'
-    CLOUDWATCH_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`CloudWatchLogsReadOnlyAccess`].Arn' --output text)
-    ACCESS_KEY_ID=$(aws iam list-access-keys --user-name $IAM_USER --query 'AccessKeyMetadata[0].AccessKeyId' --output text)
-    aws iam detach-user-policy --user-name $IAM_USER --policy-arn $CLOUDWATCH_POLICY_ARN
-    aws iam delete-access-key --access-key-id $ACCESS_KEY_ID --user-name $IAM_USER
-    aws iam delete-user --user-name $IAM_USER
 
     # delete IAM role
     IAM_ROLE='tigera-workshop-admin'

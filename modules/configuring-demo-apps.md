@@ -34,7 +34,7 @@
 
 4. Deploy compliance reports.
 
-    >The reports will be needed for one of the later labs.
+    >The reports will be needed for one of a later lab.
 
     ```bash
     kubectl apply -f demo/40-compliance-reports/daily-cis-results.yaml

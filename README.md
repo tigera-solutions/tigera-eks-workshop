@@ -57,12 +57,35 @@ In this workshop we are going to focus on these main use cases:
     kubectl delete -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/kubernetes-manifests.yaml
     ```
 
-2. Delete EKS cluster
+2. Delete EKS cluster.
 
     ```bash
     eksctl delete cluster --name tigera-workshop
     ```
 
-3. Delete Cloud9 instance
+3. Delete Cloud9 instance.
 
-Navigate to AWS Console -> Services -> Cloud9 and remove your work environment, e.g. `tigera-workshop`.
+    Navigate to `AWS Console` > `Services` > `Cloud9` and remove your workspace environment, e.g. `tigera-workshop`.
+
+4. Delete IAM role and user created for this workshop.
+
+    ```bash
+    # use your local shell to set AWS credentials
+    export AWS_ACCESS_KEY_ID="<your_accesskey_id>"
+    export AWS_SECRET_ACCESS_KEY="<your_secretkey>"
+
+    # delete IAM user
+    IAM_USER='tigera-workshop-cloudwatch-reader'
+    CLOUDWATCH_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`CloudWatchLogsReadOnlyAccess`].Arn' --output text)
+    ACCESS_KEY_ID=$(aws iam list-access-keys --user-name $IAM_USER --query 'AccessKeyMetadata[0].AccessKeyId' --output text)
+    aws iam detach-user-policy --user-name $IAM_USER --policy-arn $CLOUDWATCH_POLICY_ARN
+    aws iam delete-access-key --access-key-id $ACCESS_KEY_ID --user-name $IAM_USER
+    aws iam delete-user --user-name $IAM_USER
+
+    # delete IAM role
+    IAM_ROLE='tigera-workshop-admin'
+    ADMIN_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].Arn' --output text)
+    aws iam detach-role-policy --role-name $IAM_ROLE --policy-arn $ADMIN_POLICY_ARN
+    # if this command fails, you can remove the role via AWS Console once you delete the Cloud9 instance
+    aws iam delete-role --role-name $IAM_ROLE
+    ```

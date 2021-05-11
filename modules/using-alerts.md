@@ -12,7 +12,7 @@
 
     >We implemented alerts in one of the first labs in order to see how our activity can trigger them.
 
-    Open `Alerts` view to see all triggered alerts in the cluster. Review the generated alerts. 
+    Open `Alerts` view to see all triggered alerts in the cluster. Review the generated alerts.
 
     ![alerts view](../img/alerts-view.png)
 

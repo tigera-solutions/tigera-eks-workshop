@@ -24,4 +24,3 @@ spec:
     destination:
       selector: app == "frontend"
       namespaceSelector: projectcalico.org/name == "default"
-  - action: Pass

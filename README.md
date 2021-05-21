@@ -86,5 +86,6 @@ In this workshop we are going to focus on these main use cases:
     ADMIN_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].Arn' --output text)
     aws iam detach-role-policy --role-name $IAM_ROLE --policy-arn $ADMIN_POLICY_ARN
     # if this command fails, you can remove the role via AWS Console once you delete the Cloud9 instance
+    aws iam delete-instance-profile --instance-profile-name $IAM_ROLE
     aws iam delete-role --role-name $IAM_ROLE
     ```

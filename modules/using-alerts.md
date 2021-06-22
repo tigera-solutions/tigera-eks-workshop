@@ -18,4 +18,4 @@
 
     You can also review the alerts configuration and templates by navigating to alerts configuration in the top right corner.
 
-Congratulations! You have finished all the labs in the workshop.
+[Next -> Module 11](../modules/dynamic-packet-capture.md)

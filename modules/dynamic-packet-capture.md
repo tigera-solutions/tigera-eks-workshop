@@ -44,9 +44,9 @@
     # get pcap files
     calicoctl captured-packets copy dev-capture-nginx --namespace dev
 
-    ls dev-capture*
+    ls dev-nginx*
     # view *.pcap content
-    tcpdump -Xr dev-capture-nginx/*.pcap
+    tcpdump -Xr dev-nginx-XXXXXX.pcap
     ```
 
 Congratulations! You have finished all the labs in the workshop.

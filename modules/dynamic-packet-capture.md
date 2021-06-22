@@ -31,7 +31,7 @@
     curl -o calicoctl -O -L https://docs.tigera.io/download/binaries/v3.7.0/calicoctl
     chmod +x calicoctl
     sudo mv calicoctl /usr/local/bin/
-    calicoctl --version
+    calicoctl version
     ```
 
 3. Fetch and review captured payload.

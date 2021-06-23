@@ -16,7 +16,7 @@ In this workshop we are going to focus on these main use cases:
 - **Observability**, exploring various logs and application level metrics collected by Calico.
 - **Compliance**, providing proof of security compliance.
 - **Security alerts**, configuring alerts to notify security and operations teams of any security incidents or anomalous behaviors.
-- **Dynamic packet capture**, capturing full packet payload on demand.
+- **Dynamic packet capture**, capturing full packet payload on demand for further forensic analysis.
 
 ## Join the Slack Channel
 

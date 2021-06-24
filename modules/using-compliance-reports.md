@@ -25,6 +25,8 @@
 
 2. *[Optional]* Manually kick off report generation task.
 
+    >In order to generate a compliance report, Calico needs at least 1 hour worth of data for `inventory`, `network-access` reports, and at least 24 hours worth of data for `cis` reports. If commands below don't result in any reports being generated, give it some time and then retry the report generation.
+
     It is possible to kick off report generation via a one off job.
 
     ```bash

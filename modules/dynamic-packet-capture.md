@@ -16,12 +16,6 @@
 
     >Once the `PacketCapture` resource is deployed, Calico starts capturing packets for all endpoints configured in the `selector` field.
 
-    Stop packet capture by removing the `PacketCapture` resource.
-
-    ```bash
-    kubectl delete -f demo/60-packet-capture/nginx-pcap.yaml
-    ```
-
 2. Install `calicoctl` CLI
 
     The easiest way to retrieve captured `*.pcap` files is to use [calicoctl](https://docs.tigera.io/maintenance/clis/calicoctl/) CLI.
@@ -47,6 +41,14 @@
     ls dev-nginx*
     # view *.pcap content
     tcpdump -Xr dev-nginx-XXXXXX.pcap
+    ```
+
+4. Stop packet capture
+
+    Stop packet capture by removing the `PacketCapture` resource.
+
+    ```bash
+    kubectl delete -f demo/60-packet-capture/nginx-pcap.yaml
     ```
 
 Congratulations! You have finished all the labs in the workshop.

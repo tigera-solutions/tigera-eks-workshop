@@ -72,9 +72,11 @@
     ```bash
     # apply enforcing default-deny policy manifest
     kubectl apply -f demo/10-security-controls/default-deny.yaml
+    # you can delete staged default-deny policy
+    kubectl delete -f demo/10-security-controls/staged.default-deny.yaml
     ```
 
-4. Test connectivity with policieis in place.
+4. Test connectivity with policies in place.
 
     a. The only connections between the components within each namespaces should be allowed as configured by the policies.
 

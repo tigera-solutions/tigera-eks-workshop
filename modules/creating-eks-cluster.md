@@ -11,7 +11,7 @@
     ```bash
     export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
     export AZS=($(aws ec2 describe-availability-zones --query 'AvailabilityZones[].ZoneName' --output text --region $AWS_REGION))
-    EKS_VERSION="1.19"
+    EKS_VERSION="1.20"
     IAM_ROLE='tigera-workshop-admin'
     
     # check if AWS_REGION is configured
@@ -29,7 +29,10 @@
 
     >Do not proceed if the role is `NOT` valid, but rather go back and review the configuration steps in previous module. The proper role configuration is required for Cloud9 instance in order to use `kubectl` CLI with EKS cluster.
 
-2. Create AWS key pair.
+2. *[Optional]* Create AWS key pair.
+
+    >This step is only necessary if you want to SSH into EKS node later to test SSH related use case in one of the later modules. Otherwise, you can skip this step.
+    >If you decide to create the EC2 key pair, uncomment `publicKeyName` parameter in the cluster configuration example in the next step.
 
     In order to test host port protection with Calico network policy we will create EKS nodes with SSH access. For that we need to create EC2 key pair.
 
@@ -42,6 +45,8 @@
     ```
 
 3. Create EKS manifest.
+
+    >If you created the EC2 key pair in the previous step, then uncomment `publicKeyName` parameter in the cluster configuration example below.
 
     ```bash
     # create EKS manifest file
@@ -67,7 +72,7 @@
       ssh:
         enableSsm: true
         # uncomment lines below to allow SSH access to the nodes using existing EC2 key pair
-        publicKeyName: ${KEYPAIR_NAME}
+        #publicKeyName: ${KEYPAIR_NAME}
         allow: true
 
     # enable all of the control plane logs:

@@ -1,4 +1,4 @@
-# Module 9: Securing EKS hosts
+# Module 8: Securing EKS hosts
 
 **Goal:** Secure EKS hosts ports with network policies.
 

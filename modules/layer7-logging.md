@@ -46,6 +46,27 @@ Calico Cloud can be enabled for Layer 7 application visibility which captures th
     kubectl patch deployment redis-cart --patch "$(cat patch-envoy.yaml)"
     kubectl patch deployment shippingservice --patch "$(cat patch-envoy.yaml)"
     ```
+    
+    Check the pods are in Running state once the new deployments are up with the envoy container in each pod
+    
+    ```bash
+    kubectl get pod
+    
+    NAME                                     READY   STATUS    RESTARTS   AGE
+    adservice-6c65c8768b-r6zd6               3/3     Running   0          61m
+    cartservice-54766b5fcf-wrf5b             3/3     Running   0          61m
+    checkoutservice-6d8fdddbd-6mmwn          3/3     Running   0          61m
+    currencyservice-5b6fc8d848-4mgwg         3/3     Running   0          61m
+    emailservice-77f7bcbddb-clc6d            3/3     Running   0          61m
+    frontend-775bf668cb-jll4d                3/3     Running   0          61m
+    loadgenerator-7dbc5755f8-6rl4d           3/3     Running   0          61m
+    paymentservice-5dd97c64fd-d77kn          3/3     Running   0          61m
+    productcatalogservice-6c76456-zzq58      3/3     Running   0          61m
+    recommendationservice-85c998d89b-r88g2   3/3     Running   0          61m
+    redis-cart-64fc6dcbc4-9w565              3/3     Running   0          61m
+    shippingservice-5d7c47c9fb-mg94t         3/3     Running   0          61m
+    ```
+    
     >L7 flow logs will require a few minutes to generate.
 
 4.  Review L7 logs

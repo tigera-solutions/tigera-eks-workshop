@@ -50,6 +50,7 @@ In this workshop we are going to focus on these main use cases:
 - [Module 9: Using compliance reports](modules/using-compliance-reports.md)
 - [Module 10: Using alerts](modules/using-alerts.md)
 - [Module 11: Dynamic packet capture](modules/dynamic-packet-capture.md)
+- [Module 12: Anomaly Detection](modules/anomaly-detection.md)
 
 ## Cleanup
 

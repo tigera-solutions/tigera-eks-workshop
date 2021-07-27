@@ -40,7 +40,7 @@ The simplest ways to configure your working environment is to either use your lo
 3. Download this repo into your environment:
 
     ```bash
-    git clone https://github.com/tigera-solutions/tigera-eks-workshop  
+    git clone https://github.com/chrisman-io/tigera-eks-workshop.git  
     ```
 
 4. Configure AMI role for Cloud9 workspace.

@@ -1,4 +1,4 @@
-# Module 12: Anomaly Detection
+# Module 13: Anomaly Detection
 
 **Goal:** Configure Anomaly Detection to alert upon abnormal/suspicious traffic
 ---

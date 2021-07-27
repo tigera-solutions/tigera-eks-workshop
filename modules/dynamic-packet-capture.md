@@ -1,4 +1,4 @@
-# Module 11: Dynamic packet capture
+# Module 12: Dynamic packet capture
 
 **Goal:** Configure packet capture for specific pods and review captured payload.
 
@@ -51,4 +51,4 @@
     kubectl delete -f demo/60-packet-capture/nginx-pcap.yaml
     ```
 
-[Next -> Module 12](../modules/anomaly-detection.md)
+[Next -> Module 13](../modules/anomaly-detection.md)

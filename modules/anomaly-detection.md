@@ -43,12 +43,12 @@ less ./demo/70-anomaly-detection/ad-jobs-deployment-managed.yaml
 
 2. We need to substitute the Cluster Name in the YAML file with the variable `CALICOCLUSTERNAME` we configured in [Module 3](../module/joining-eks-to-calico-cloud.md). This enables the Machine Learning jobs to target the correct indices in Elastic Search
 	```bash
-	sed -i "" "s/\$CALICOCLUSTERNAME/$CALICOCLUSTERNAME/g" ./demo/90-anomaly-detection/ad-jobs-deployment-managed.yaml
+	sed -i "" "s/\$CALICOCLUSTERNAME/$CALICOCLUSTERNAME/g" ./demo/70-anomaly-detection/ad-jobs-deployment-managed.yaml
 	```
 
 3. Now apply the Anomaly Detection deployment YAML
 	```bash
-	kubectl apply -f ./demo/90-anomaly-detection/ad-jobs-deployment-managed.yaml
+	kubectl apply -f ./demo/70-anomaly-detection/ad-jobs-deployment-managed.yaml
 	```
 
 4. Simulate anomaly by using an NMAP port scan above the threshold set in our Deployment env vars listed in Step 1.

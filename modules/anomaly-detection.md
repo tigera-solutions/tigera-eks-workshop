@@ -64,7 +64,7 @@ less ./demo/70-anomaly-detection/ad-jobs-deployment-managed.yaml
 	```
 	>Output should resemble
 	```bash
-	kubectl -n dev netshoot -- nmap -Pn -r -p 1-1000 $POD_IP
+	kubectl exec -n dev netshoot -- nmap -Pn -r -p 1-1000 $POD_IP
 	
 	Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
 	Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-23 20:20 UTC

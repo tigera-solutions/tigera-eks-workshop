@@ -1,4 +1,4 @@
-# Module 9: Layer 7 Logging and Visibility
+# Module 8: Layer 7 Logging and Visibility
 
 **Goal:** Enable Layer 7 visibility for Pod traffic.
 ---
@@ -75,7 +75,7 @@ Calico Cloud can be enabled for Layer 7 application visibility which captures th
 
     <img src="../img/service-graph-l7.png" alt="Service Graph L7" width="100%"/>
 
-[Next -> Module 10](../modules/using-observability-tools.md)
+[Next -> Module 9](../modules/using-observability-tools.md)
 
 
 

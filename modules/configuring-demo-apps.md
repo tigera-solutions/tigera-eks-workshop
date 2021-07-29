@@ -59,4 +59,4 @@
     kubectl exec -it $(kubectl get po -l app=loadgenerator -ojsonpath='{.items[0].metadata.name}') -- sh -c 'apt install curl -y'
     ```
 
-[Next -> Module 5](../modules/layer7-logging.md)
+[Next -> Module 5](../modules/using-security-controls.md)

@@ -1,4 +1,4 @@
-# Module 6: Using security controls
+# Module 5: Using security controls
 
 **Goal:** Leverage network policies to segment connections within Kubernetes cluster and prevent known bad actors from accessing the workloads.
 
@@ -123,4 +123,4 @@
     kubectl -n dev exec -t centos -- sh -c "ping -c1 $IP"
     ```
 
-[Next -> Module 7](../modules/using-egress-access-controls.md)
+[Next -> Module 6](../modules/using-egress-access-controls.md)

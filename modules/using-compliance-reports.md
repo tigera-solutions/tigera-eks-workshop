@@ -55,4 +55,4 @@
       demo/40-compliance-reports/cluster-reporter-jobs.yaml | kubectl apply -f -
     ```
 
-[Next -> Module 11](../modules/using-alerts.md)
+[Next -> Module 12](../modules/using-alerts.md)

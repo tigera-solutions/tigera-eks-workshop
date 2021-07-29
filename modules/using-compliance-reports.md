@@ -1,4 +1,4 @@
-# Module 10: Using compliance reports
+# Module 11: Using compliance reports
 
 **Goal:** Use global reports to satisfy compliance requirements.
 

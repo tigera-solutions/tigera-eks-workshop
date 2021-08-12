@@ -60,7 +60,7 @@ less ./demo/70-anomaly-detection/ad-jobs-deployment-managed.yaml
 	```bash
 	# mock port scan
 	POD_IP=$(kubectl -n dev get po --selector app=centos -o jsonpath='{.items[0].status.podIP}')
-	kubectl -n dev uat netshoot -- nmap -Pn -r -p 1-1000 $POD_IP
+	kubectl exec -it -n dev netshoot -- nmap -Pn -r -p 1-1000 $POD_IP
 	```
 	>Output should resemble
 	```bash

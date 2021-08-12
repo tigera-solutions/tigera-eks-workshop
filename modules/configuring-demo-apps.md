@@ -10,7 +10,16 @@ In [Module 13](../modules/anomaly-detection.md) we introduce Namespace `tigera-i
 
 ## Steps
 
-1. Deploy policy tiers.
+1. Download this repo into your environment:
+
+    ```bash
+    git clone https://github.com/chrisman-io/tigera-eks-workshop.git
+    ```
+    
+    ```bash
+    cd ./calicocloud-aks-workshop
+    ```
+2. Deploy policy tiers.
 
     We are going to deploy some policies into policy tier to take advantage of hierarcical policy management.
 

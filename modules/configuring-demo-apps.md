@@ -62,8 +62,9 @@ In [Module 13](../modules/anomaly-detection.md) we introduce Namespace `tigera-i
 
     ```bash
     ##install update package 
-    kubectl exec -it $(kubectl get po -l app=loadgenerator -ojsonpath='{.items[0].metadata.name}') -- sh -c 'apt-get update && sleep 10'
-
+    kubectl exec -it $(kubectl get po -l app=loadgenerator -ojsonpath='{.items[0].metadata.name}') -- sh -c 'apt-get update'
+    ## wait for 10 seconds
+    sleep 10
     ##install curl 
     kubectl exec -it $(kubectl get po -l app=loadgenerator -ojsonpath='{.items[0].metadata.name}') -- sh -c 'apt install curl -y'
     ```

@@ -51,4 +51,4 @@
     kubectl apply -f demo/50-alerts/unsanctioned.lateral.access.yaml
     ```
 
-[Next -> Module 5](../modules/using-security-controls.md)
+[Next -> Module 5](../modules/modules/enable-l7-logs.md)

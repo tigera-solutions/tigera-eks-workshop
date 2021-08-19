@@ -1,4 +1,4 @@
-# Module 6: Using egress access controls
+# Module 7: Using egress access controls
 
 **Goal:** Configure egress access for specific workloads.
 
@@ -17,6 +17,7 @@
 
     ```bash
     # test connectivity from dev namespace to the Internet
+    kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://api.twilio.com 2>/dev/null | grep -i http'
     kubectl -n dev exec -t centos -- sh -c 'curl -m3 -sI http://www.google.com 2>/dev/null | grep -i http'
     ```
 
@@ -65,4 +66,4 @@
 
     >As a bonus example, you can modify the `external-apis` network set to include `*.google.com` domain name which would allow access to Google subdomains. If you do it, you can would allow acess to subdomains like `www.google.com`, `docs.google.com`, etc.
 
-[Next -> Module 7](../modules/securing-heps.md)
+[Next -> Module 8](../modules/securing-heps.md)

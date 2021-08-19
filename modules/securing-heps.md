@@ -1,4 +1,4 @@
-# Module 7: Securing EKS hosts
+# Module 8: Securing EKS hosts
 
 **Goal:** Secure EKS hosts ports with network policies.
 
@@ -26,6 +26,9 @@ Calico network policies not only can secure pod to pod communications but also c
     PUB_IP=$(aws ec2 describe-instances --region $AWS_REGION --filters "Name=tag:Name,Values=$CLUSTER_NAME*" "Name=instance-state-name,Values=running" --query 'Reservations[0].Instances[0].PublicIpAddress' --output text --output text)
     # test connection to SSH port
     nc -zv $PUB_IP 30080
+
+    # get var configuration for local shell which will be used in a later step
+    echo "EKS_NODE_PUB_IP=$PUB_IP"
     ```
 
     >It can take a moment for the node port to become accessible.
@@ -83,4 +86,4 @@ Calico network policies not only can secure pod to pod communications but also c
     sed -e "s/\${CLOUD9_IP}/${CLOUD9_IP}\/32/g" demo/30-secure-hep/ssh-access.yaml | kubectl apply -f -
     ```
 
-[Next -> Module 8](../modules/using-observability-tools.md)
+[Next -> Module 9](../modules/using-observability-tools.md)

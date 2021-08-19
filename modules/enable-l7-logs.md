@@ -5,7 +5,7 @@
 For more details on L7 logs, refer to the [official documentation](https://docs.tigera.io/v3.9/visibility/elastic/l7/configure#step-2-enable-l7-log-collection).
 
 >This module is applicable to Calico Cloud or Calico Enterprise version v3.9+. If your Calico version is lower than v3.9.0, then skip this module. You can verify Calico version, by running command:  
-`kubectl get clusterinformation default -ojsonpath='{.spec.cnxVersion}'`.
+`kubectl get clusterinformation default -ojsonpath='{.spec.cnxVersion}'`
 
 ## Steps
 

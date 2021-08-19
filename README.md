@@ -78,7 +78,7 @@ In this workshop we are going to focus on these main use cases:
 
 4. Delete Cloud9 instance.
 
-    Navigate to `AWS Console` > `Services` > `Cloud9` and remove your workspace environment, e.g. `tigera-workshop`.
+    Navigate to `AWS Console` > `Services` > `Cloud9` and remove your workspace environment, e.g. `tigera-workspace`.
 
 5. Delete IAM role created for this workshop.
 

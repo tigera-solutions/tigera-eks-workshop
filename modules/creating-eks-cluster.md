@@ -11,7 +11,7 @@
     ```bash
     export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
     export AZS=($(aws ec2 describe-availability-zones --query 'AvailabilityZones[].ZoneName' --output text --region $AWS_REGION))
-    EKS_VERSION="1.20"
+    EKS_VERSION="1.21"
     IAM_ROLE='tigera-workshop-admin'
     
     # check if AWS_REGION is configured
@@ -73,7 +73,7 @@
         enableSsm: true
         # uncomment lines below to allow SSH access to the nodes using existing EC2 key pair
         #publicKeyName: ${KEYPAIR_NAME}
-        allow: true
+        #allow: true
 
     # enable all of the control plane logs:
     cloudWatch:

@@ -123,16 +123,26 @@
 
     Calico offers `GlobalThreatfeed` resource to prevent known bad actors from accessing Kubernetes pods.
 
+    a. Deploy a threat feed and a policy for it.
+
     ```bash
     # deploy feodo tracker threatfeed
     kubectl apply -f demo/10-security-controls/feodotracker.threatfeed.yaml
     # deploy network policy that uses the threadfeed
     kubectl apply -f demo/10-security-controls/feodo-block-policy.yaml
+    ```
 
+    b. Simulate access to threat feed endpoints.
+
+    ```bash
     # try to ping any of the IPs in from the feodo tracker list
     IP=$(kubectl get globalnetworkset threatfeed.feodo-tracker -ojson | jq .spec.nets[0] | sed -e 's/^"//' -e 's/"$//' -e 's/\/32//')
     kubectl -n dev exec -t centos -- sh -c "ping -c1 $IP"
     ```
+
+    c. Review the results.
+
+    Navigate to Calico Enterprise `Manager UI` -> `Alerts` to view the results.
 
 6. *[Bonus task]* Monitor the use of Tor exists by pods.
 

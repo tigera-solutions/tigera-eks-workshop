@@ -134,7 +134,7 @@
     kubectl -n dev exec -t centos -- sh -c "ping -c1 $IP"
     ```
 
-6. *[Bonus task]* Monitor the use of Tor exists by applications.
+6. *[Bonus task]* Monitor the use of Tor exists by pods.
 
     Calico leverages `GlobalThreatfeed` resource to monitor the use of Tor (The Onion Router) exists which provide the means to establish anonymous connections. You can configure [Tor-VPN feed types](https://docs.tigera.io/threat/tor-vpn-feed-and-dashboard) to capture any attempts from within your cluster to use those types of exists.
 

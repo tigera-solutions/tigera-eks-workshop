@@ -52,8 +52,8 @@ The simplest ways to configure your working environment is to either use your lo
     >It is recommended to use your personal AWS account which would have full access to AWS resources. If using a corporate AWS account, make sure to check with account administrators to provide you with sufficient permissions to create and manage EKS clusters and Load Balancer resources.
 
     ```bash
-    export AWS_ACCESS_KEY_ID="<your_accesskey_id>"
-    export AWS_SECRET_ACCESS_KEY="<your_secretkey>"
+    export AWS_ACCESS_KEY_ID='<your_accesskey_id>'
+    export AWS_SECRET_ACCESS_KEY='<your_secretkey>'
     ```
 
     b. Create IAM role.

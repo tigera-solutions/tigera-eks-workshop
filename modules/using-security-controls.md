@@ -134,4 +134,25 @@
     kubectl -n dev exec -t centos -- sh -c "ping -c1 $IP"
     ```
 
+6. *[Bonus task]* Monitor the use of Tor exists by applications.
+
+    Calico leverages `GlobalThreatfeed` resource to monitor the use of Tor (The Onion Router) exists which provide the means to establish anonymous connections. You can configure [Tor-VPN feed types](https://docs.tigera.io/threat/tor-vpn-feed-and-dashboard) to capture any attempts from within your cluster to use those types of exists.
+
+    a. Configure Tor bulk exist feed.
+
+    ```bash
+    kubectl apply -f https://docs.tigera.io/manifests/threatdef/tor-exit-feed.yaml
+    ```
+
+    b. Simulate attempt to use a Tor exit.
+
+    ```bash
+    IP=$(kubectl get globalnetworkset threatfeed.tor-bulk-exit-list -ojson | jq .spec.nets[0] | sed -e 's/^"//' -e 's/"$//' -e 's/\/32//')
+    kubectl -n dev exec -t centos -- sh -c "ping -c1 $IP"
+    ```
+
+    c. View the attempts to use the Tor exists in the Kibana dashboard.
+
+    Navigate to `Kibana` -> `Dashboard` -> `Tigera Secure EE Tor-VPN Logs` dashboard to view the results.
+
 [Next -> Module 7](../modules/using-egress-access-controls.md)

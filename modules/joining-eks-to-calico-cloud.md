@@ -46,4 +46,14 @@
     kubectl patch felixconfiguration.p default -p '{"spec":{"flowLogsFileAggregationKindForAllowed":1}}'
     ```
 
+3. Enable TCP stats collection.
+
+    >This feature allows collection of TCP socket stats leveraging eBPF TC programs. See the docs for [more details](https://docs.tigera.io/visibility/elastic/flow/tcpstats).
+
+    ```bash
+     kubectl patch felixconfiguration default -p '{"spec":{"flowLogsCollectTcpStats":true}}'
+    ```
+
+    In module 9 you can view these stats in the `Socket stats` tab on the right hand side when selecting a traffic flow edge.
+
 [Next -> Module 4](../modules/configuring-demo-apps.md)

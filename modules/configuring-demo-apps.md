@@ -58,7 +58,7 @@ In [Module 13](../modules/anomaly-detection.md) we introduce Namespace `tigera-i
 
 5. Deploy global alerts.
 
-    >The alerts will be explored in a later lab.
+    >The alerts will be explored in a later lab. Warning messages will appear whilst deploying the GlobalAlerts but these have no adverse effect.
 
     ```bash
     kubectl apply -f demo/50-alerts/globalnetworkset.changed.yaml

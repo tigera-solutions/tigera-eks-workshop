@@ -35,6 +35,7 @@ Calico Cloud can be enabled for Layer 7 application visibility which captures th
     kubectl get pod -n calico-system
     ```
     >Output will look similar to:
+    ```
     NAME                                       READY   STATUS    RESTARTS   AGE
     calico-kube-controllers-6b4dccd6c5-579s8   1/1     Running   0          120m
     calico-node-b26qh                          1/1     Running   0          120m
@@ -46,7 +47,7 @@ Calico Cloud can be enabled for Layer 7 application visibility which captures th
     l7-log-collector-627qf                     2/2     Running   0          91s
     l7-log-collector-6b6cx                     2/2     Running   0          3m52s
     l7-log-collector-jxzjq                     2/2     Running   0          15m
-
+    ```
 
 3.  Annotate the Boutiqueshop Services
 

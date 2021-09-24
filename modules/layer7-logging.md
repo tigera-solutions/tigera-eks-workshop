@@ -52,17 +52,17 @@ Calico Cloud can be enabled for Layer 7 application visibility which captures th
 3.  Annotate the Boutiqueshop Services
 
     ```bash
-    kubectl annotate svc adservice -n default projectcalico.org/l7-logging=true
-    kubectl annotate svc cartservice projectcalico.org/l7-logging=true
-    kubectl annotate svc checkoutservice projectcalico.org/l7-logging=true
-    kubectl annotate svc currencyservice projectcalico.org/l7-logging=true
-    kubectl annotate svc emailservice projectcalico.org/l7-logging=true
-    kubectl annotate svc frontend projectcalico.org/l7-logging=true
-    kubectl annotate svc paymentservice projectcalico.org/l7-logging=true
-    kubectl annotate svc productcatalogservice projectcalico.org/l7-logging=true
-    kubectl annotate svc recommendationservice projectcalico.org/l7-logging=true
-    kubectl annotate svc redis-cart projectcalico.org/l7-logging=true
-    kubectl annotate svc shippingservice projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default adservice projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default cartservice projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default checkoutservice projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default currencyservice projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default emailservice projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default frontend projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default paymentservice projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default productcatalogservice projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default recommendationservice projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default redis-cart projectcalico.org/l7-logging=true
+    kubectl annotate svc -n default shippingservice projectcalico.org/l7-logging=true
     ```
     
     >L7 flow logs will require a few minutes to generate.

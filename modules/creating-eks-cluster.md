@@ -70,7 +70,6 @@
       # see: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI
       instanceType: "t3.large"
       ssh:
-        enableSsm: true
         # uncomment lines below to allow SSH access to the nodes using existing EC2 key pair
         #publicKeyName: ${KEYPAIR_NAME}
         allow: true

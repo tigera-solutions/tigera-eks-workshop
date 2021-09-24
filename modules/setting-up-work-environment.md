@@ -34,6 +34,16 @@ The simplest ways to configure your working environment is to either use your lo
     jq --version
     nc --version
     ```
+    
+    >If `aws` version is `1.x`, upgrade it to version `2.x`.
+    ```bash
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install
+    # reload bash shell
+    . ~/.bashrc
+    aws --version
+    ```
 
     >For convenience consider configuring [autocompletion for kubectl](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/#enable-kubectl-autocompletion).
 

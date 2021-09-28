@@ -17,6 +17,8 @@ In this workshop we are going to focus on these main use cases:
 - **Compliance**, providing proof of security compliance.
 - **Security alerts**, configuring alerts to notify security and operations teams of any security incidents or anomalous behaviors.
 - **Dynamic packet capture**, capturing full packet payload on demand for further forensic analysis.
+- **Honeypods**, Deploying HoneyPot techniques to detect bad actors. 
+
 
 ## Join the Slack Channel
 
@@ -52,6 +54,7 @@ In this workshop we are going to focus on these main use cases:
 - [Module 11: Using alerts](modules/using-alerts.md)
 - [Module 12: Dynamic packet capture](modules/dynamic-packet-capture.md)
 - [Module 13: Anomaly Detection](modules/anomaly-detection.md)
+- [Module 14: Honeypod Threat Detection](modules/honeypod-threat-detection.md)
 
 ## Cleanup
 

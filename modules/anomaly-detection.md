@@ -78,5 +78,5 @@ less ./demo/70-anomaly-detection/ad-jobs-deployment-managed.yaml
 
 <img src="../img/anomaly-detection-alert.png" alt="Anomaly Detection Alert" width="100%"/>
 
-Congratulations on completing this workshop. Follow the cluster deletion steps on the [main page](https://github.com/chrisman-io/tigera-eks-workshop) if required.
+[Next -> Module 14](../modules/honeypod-threat-detetion.md)
 

@@ -78,5 +78,5 @@ less ./demo/70-anomaly-detection/ad-jobs-deployment-managed.yaml
 
 <img src="../img/anomaly-detection-alert.png" alt="Anomaly Detection Alert" width="100%"/>
 
-[Next -> Module 14](../modules/honeypod-threat-detetion.md)
+[Next -> Module 14](../modules/honeypod-threat-detection.md)
 

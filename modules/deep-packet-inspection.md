@@ -16,6 +16,12 @@
 
     >Once the `PacketCapture` resource is deployed, Calico starts capturing packets for all endpoints configured in the `selector` field.
 
+    Wait until all DPI pods become `Ready`
+
+    ```bash
+    watch kubectl get po -n tigera-dpi
+    ```
+
 2. Simulate malicious request.
 
     Query `dev/nginx` application with payload that has a of a malicious payloads.

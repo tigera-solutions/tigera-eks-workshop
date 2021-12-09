@@ -51,6 +51,7 @@ In this workshop we are going to focus on these main use cases:
 - [Module 10: Using compliance reports](modules/using-compliance-reports.md)
 - [Module 11: Using alerts](modules/using-alerts.md)
 - [Module 12: Dynamic packet capture](modules/dynamic-packet-capture.md)
+- [Module 13: Deep packet inspection](modules/deep-packet-inspection.md)
 
 ## Cleanup
 

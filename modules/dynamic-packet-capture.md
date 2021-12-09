@@ -52,4 +52,4 @@
     kubectl delete -f demo/60-packet-capture/nginx-pcap.yaml
     ```
 
-Congratulations! You have finished all the labs in the workshop.
+[Next -> Module 13](../modules/deep-packet-inspection.md)

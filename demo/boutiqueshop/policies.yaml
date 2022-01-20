@@ -283,6 +283,14 @@ spec:
         selector: app == "cartservice"
         ports:
           - '7070'
+    - action: Allow
+      protocol: TCP
+      source: {}
+      destination:
+        nets:
+          - 169.254.169.254/32
+        ports:
+          - '80'
   types:
     - Ingress
     - Egress

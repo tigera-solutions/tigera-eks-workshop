@@ -24,7 +24,7 @@
 
 2. Simulate malicious request.
 
-    Query `dev/nginx` application with payload that has a of a malicious payloads.
+    Query `dev/nginx` application with payload that triggers a Snort rule alert.
 
     ```bash
     kubectl -n dev exec -t centos -- sh -c "curl http://nginx-svc -H 'User-Agent: Mozilla/4.0' -XPOST --data-raw 'smk=1234'"

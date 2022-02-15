@@ -21,8 +21,9 @@
     The easiest way to retrieve captured `*.pcap` files is to use [calicoctl](https://docs.tigera.io/maintenance/clis/calicoctl/) CLI.
 
     ```bash
+    CALICO_VERSION=$(kubectl get clusterinformation default -ojsonpath='{.spec.cnxVersion}')
     # download and configure calicoctl
-    curl -o calicoctl -O -L https://docs.tigera.io/download/binaries/v3.7.0/calicoctl
+    curl -o calicoctl -O -L https://docs.tigera.io/download/binaries/${CALICO_VERSION}/calicoctl
     chmod +x calicoctl
     sudo mv calicoctl /usr/local/bin/
     calicoctl version
@@ -51,5 +52,7 @@
     ```bash
     kubectl delete -f demo/60-packet-capture/nginx-pcap.yaml
     ```
+
+>Note Packet Captures can also be created and scheduled directly from the Calico UI. Follow the Service Graph method for this alternative [procedure](https://docs.tigera.io/visibility/packetcapture#access-packet-capture-files-via-service-graph).
 
 [Next -> Module 13](../modules/deep-packet-inspection.md)

@@ -37,7 +37,7 @@
 
     ```bash
     # get pcap files
-    calicoctl captured-packets copy dev-nginx-pcap --namespace dev
+    calicoctl captured-packets copy nginx-pcap --namespace dev
 
     ls dev-nginx*
     # view *.pcap content

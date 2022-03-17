@@ -1,7 +1,7 @@
 apiVersion: projectcalico.org/v3
 kind: PacketCapture
 metadata:
-  name: dev-capture-nginx
+  name: nginx-pcap
   namespace: dev
 spec:
   selector: app == "nginx"

@@ -55,7 +55,7 @@
       -e "s?<ELASTIC_INDEX_SUFFIX>?$ELASTIC_INDEX_SUFFIX?g" \
       -e "s?<REPORT_START_TIME_UTC>?$START_TIME?g" \
       -e "s?<REPORT_END_TIME_UTC>?$END_TIME?g" \
-      scenarios/60-compliance-reports/cluster-reporter-pods.yaml | kubectl apply -f -
+      scenarios/40-compliance-reports/cluster-reporter-pods.yaml | kubectl apply -f -
     ```
 
 [Next -> Module 11](../modules/using-alerts.md)

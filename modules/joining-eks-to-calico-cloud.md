@@ -9,7 +9,7 @@
 1. Calico Cloud Registration
 
     After verifying email activation, a browser tab of the Calico Cloud UI is launched which will ask for a few personal details. After this step the Welcome screen shows four use cases which will give a quick tour for learning more. Pick a use case to continue. Tip: the menu icons on the left can be expanded to display the worded menu as shown:
-    
+
     ![expand-menu](../img/expand-menu.png)
 
 2. Join EKS cluster to Calico Cloud management plane.
@@ -22,7 +22,7 @@
 
     ```bash
     kubectl apply -f https://installer.calicocloud.io/manifests/cc-operator/latest/deploy.yaml && curl -H "Authorization: Bearer xxxxxxxxxxxx" "https://www.calicocloud.io/api/managed-cluster/deploy.yaml" | kubectl apply -f -
-    ``` 
+    ```
 
     Copy the output to clipboard and paste into your terminal to run. Output should look similar to:
 
@@ -44,7 +44,7 @@
     100   355  100   355    0     0    541      0 --:--:-- --:--:-- --:--:--   541
     secret/api-key created
     installer.operator.calicocloud.io/aks-westus created
-    ``` 
+    ```
 
     Joining the cluster to Calico Cloud can take a few minutes. Meanwhile the Calico resources can be monitored until they are all reporting `Available` as `True`.
 
@@ -61,7 +61,7 @@
     monitor                         True        False         False      2m1s
     ```
 
-2. Configure log aggregation and flush intervals.
+3. Configure log aggregation and flush intervals.
 
     ```bash
     kubectl patch felixconfiguration.p default -p '{"spec":{"flowLogsFlushInterval":"10s"}}'
@@ -69,7 +69,7 @@
     kubectl patch felixconfiguration.p default -p '{"spec":{"flowLogsFileAggregationKindForAllowed":1}}'
     ```
 
-3. Enable TCP stats collection.
+4. Enable TCP stats collection.
 
     >This feature allows collection of TCP socket stats leveraging eBPF TC programs. See the docs for [more details](https://docs.tigera.io/visibility/elastic/flow/tcpstats).
 

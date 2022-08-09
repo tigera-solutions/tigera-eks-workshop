@@ -2,7 +2,7 @@
 
 **Goal:** Leverage L7 logs to get insight into application layer communications.
 
-For more details on L7 logs, refer to the [official documentation](https://docs.tigera.io/v3.11/visibility/elastic/l7/configure).
+For more details on L7 logs, refer to the [official documentation](https://docs.tigera.io/visibility/elastic/l7/configure).
 
 >This module is applicable to Calico Cloud or Calico Enterprise version v3.10+. If your Calico version is lower than v3.10.0, then skip this task. You can verify Calico version, by running command:  
 `kubectl get clusterinformation default -ojsonpath='{.spec.cnxVersion}'`
@@ -11,7 +11,13 @@ For more details on L7 logs, refer to the [official documentation](https://docs.
 
 ## Steps
 
-1. Deploy `ApplicationLayer` resource.
+1. Enable Policy Sync API setting.
+
+    ```bash
+    kubectl patch felixconfiguration default --type='merge' -p '{"spec":{"policySyncPathPrefix":"/var/run/nodeagent"}}'
+    ```
+
+2. Deploy `ApplicationLayer` resource.
 
     a. Deploy `ApplicationLayer` resource.
 
@@ -27,8 +33,9 @@ For more details on L7 logs, refer to the [official documentation](https://docs.
         logIntervalSeconds: 5
         logRequestsPerInterval: -1
     EOF
-    ```    
-   >This creates `l7-log-collector` daemonset in the `calico-system` namespace which contains `enovy-proxy` pod for application log collection and security.
+    ```
+
+    >This creates `l7-log-collector` daemonset in the `calico-system` namespace which contains `enovy-proxy` pod for application log collection and security.
 
     b. Enable L7 logs for the application service.
 

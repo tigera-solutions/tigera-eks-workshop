@@ -45,7 +45,7 @@
 
     START_TIME=$(date -d '-2 hours' -u +'%Y-%m-%dT%H:%M:%SZ')
     END_TIME=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-    
+
     # replace variables in YAML and deploy reporter jobs
     sed -e "s?<CALICO_VERSION>?$CALICO_VERSION?g" \
       -e "s?<CIS_REPORT_NAME>?$CIS_REPORT_NAME?g" \

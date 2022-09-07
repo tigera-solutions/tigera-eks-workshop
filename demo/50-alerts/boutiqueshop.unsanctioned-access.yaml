@@ -1,0 +1,19 @@
+---
+# for demo purpose "period" and "lookback" fields are set to 1m
+apiVersion: projectcalico.org/v3
+kind: GlobalAlert
+metadata:
+  name: paymentservice.unsanctioned.lateral.access
+spec:
+  description: "Alerts when paymentservice pod is accessed by unsanctioned workloads outside of boutiqueshop application namespace"
+  summary: "[flows] [lateral movement] ${source_namespace}/${source_name_aggr} has accessed boutiqueshop's pod ${dest_namespace}/${dest_name_aggr}"
+  severity: 100
+  period: 1m
+  lookback: 1m
+  dataSet: flows
+  query: '"dest_namespace"="default" AND "dest_labels.labels"="app=paymentservice" AND "source_namespace"!="default" AND proto=tcp AND (action=allow OR action=deny) AND reporter=dst'
+  aggregateBy: [source_namespace, source_name_aggr, dest_namespace, dest_name_aggr]
+  field: num_flows
+  metric: sum
+  condition: gt
+  threshold: 0

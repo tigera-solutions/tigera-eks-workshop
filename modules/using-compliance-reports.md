@@ -37,7 +37,7 @@
     INVENTORY_REPORT_NAME='cluster-inventory'
     NETWORK_ACCESS_REPORT_NAME='cluster-network-access'
     # for managed clusters you must set ELASTIC_INDEX_SUFFIX var to cluster name in the reporter pod template YAML
-    ELASTIC_INDEX_SUFFIX='<set_managed_cluster_name_here>'
+    ELASTIC_INDEX_SUFFIX=$(kubectl get deployment -n tigera-intrusion-detection intrusion-detection-controller -ojson | jq -r '.spec.template.spec.containers[0].env[] | select(.name == "CLUSTER_NAME").value')
     
     # enable if you configured audit logs for EKS cluster and uncommented policy audit reporter job
     # you also need to add variable replacement in the sed command below

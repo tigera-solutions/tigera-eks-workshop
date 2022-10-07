@@ -1,0 +1,80 @@
+# security tier pass policy
+---
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: security.pass-to-next-tier
+spec:
+  tier: security
+  order: 2000
+  selector: all()
+  namespaceSelector: ''
+  serviceAccountSelector: ''
+  ingress:
+    - action: Pass
+      source: {}
+      destination: {}
+  egress:
+    - action: Pass
+      source: {}
+      destination: {}
+  doNotTrack: false
+  applyOnForward: false
+  preDNAT: false
+  types:
+    - Ingress
+    - Egress
+
+# platform tier pass policy
+---
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: platform.pass-to-next-tier
+spec:
+  tier: platform
+  order: 2000
+  selector: all()
+  namespaceSelector: ''
+  serviceAccountSelector: ''
+  ingress:
+    - action: Pass
+      source: {}
+      destination: {}
+  egress:
+    - action: Pass
+      source: {}
+      destination: {}
+  doNotTrack: false
+  applyOnForward: false
+  preDNAT: false
+  types:
+    - Ingress
+    - Egress
+
+# application tier pass policy
+---
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: application.pass-to-next-tier
+spec:
+  tier: application
+  order: 2000
+  selector: all()
+  namespaceSelector: ''
+  serviceAccountSelector: ''
+  ingress:
+    - action: Pass
+      source: {}
+      destination: {}
+  egress:
+    - action: Pass
+      source: {}
+      destination: {}
+  doNotTrack: false
+  applyOnForward: false
+  preDNAT: false
+  types:
+    - Ingress
+    - Egress

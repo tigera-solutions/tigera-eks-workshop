@@ -9,7 +9,7 @@
     We are going to deploy some policies into policy tier to take advantage of hierarcical policy management.
 
     ```bash
-    kubectl apply -f demo/tiers/tiers.yaml
+    kubectl apply -f demo/00-tiers/tiers.yaml
     ```
 
     This will add tiers `security` and `platform` to the Calico cluster.
@@ -19,7 +19,8 @@
     In order to explicitly allow workloads to connect to the Kubernetes DNS component, we are going to implement a policy that controls such traffic.
 
     ```bash
-    kubectl apply -f demo/10-security-controls/allow-kube-dns.yaml
+    kubectl apply -f demo/01-base/allow-kube-dns.yaml
+    kubectl apply -f demo/01-base/tiers-pass-policy.yaml
     ```
 
 3. Deploy demo applications.
@@ -29,7 +30,7 @@
     kubectl apply -f demo/dev/app.manifests.yaml
 
     # deploy boutiqueshop app stack
-    kubectl apply -f https://github.com/GoogleCloudPlatform/microservices-demo/blob/release/v0.3.8/release/kubernetes-manifests.yaml
+    kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/release/v0.3.8/release/kubernetes-manifests.yaml
     ```
 
 4. Deploy compliance reports.

@@ -106,4 +106,16 @@
     kubectl get nodes
     ```
 
+7. Configure storage class
+
+    >[Amazon CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) is required to be configured when using Amazon EBS storage since EKS 1.23 version.
+
+    ```bash
+    # install driver
+    kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.12"
+
+    # check driver pods status
+    kubectl get pods -n kube-system | grep -i ebs-csi
+    ```
+
 [Next -> Module 3](../modules/joining-eks-to-calico-cloud.md)

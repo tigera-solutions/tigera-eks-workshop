@@ -10,15 +10,15 @@
 
     ```bash
     # test connectivity from dev namespace to default namespace
-    kubectl -n dev exec -t centos -- sh -c 'curl -m3 -sI http://frontend.default 2>/dev/null | grep -i http'
+    kubectl -n dev exec -t centos -- sh -c 'curl -m2 -sI http://frontend.default 2>/dev/null | grep -i http'
     ```
 
     b. Test connectivity from `dev/centos` to the external endpoint.
 
     ```bash
     # test connectivity from dev namespace to the Internet
-    kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://api.twilio.com 2>/dev/null | grep -i http'
-    kubectl -n dev exec -t centos -- sh -c 'curl -m3 -sI http://www.google.com 2>/dev/null | grep -i http'
+    kubectl -n dev exec -t centos -- sh -c 'curl -m2 -skI https://api.twilio.com 2>/dev/null | grep -i http'
+    kubectl -n dev exec -t centos -- sh -c 'curl -m2 -sI http://www.google.com 2>/dev/null | grep -i http'
     ```
 
     The access should be denied as the policies configured in previous module do not allow it.
@@ -34,7 +34,7 @@
     b. Test connectivity between `dev/centos` pod and `default/frontend` service.
 
     ```bash
-    kubectl -n dev exec -t centos -- sh -c 'curl -m3 -sI http://frontend.default 2>/dev/null | grep -i http'
+    kubectl -n dev exec -t centos -- sh -c 'curl -m2 -sI http://frontend.default 2>/dev/null | grep -i http'
     ```
 
     The access should be allowed once the egress policy is in place.
@@ -48,9 +48,9 @@
     kubectl apply -f demo/20-egress-access-controls/dns-policy.yaml
 
     # test egress access to api.twilio.com
-    kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://api.twilio.com 2>/dev/null | grep -i http'
+    kubectl -n dev exec -t centos -- sh -c 'curl -m2 -skI https://api.twilio.com 2>/dev/null | grep -i http'
     # test egress access to www.google.com
-    kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://www.google.com 2>/dev/null | grep -i http'
+    kubectl -n dev exec -t centos -- sh -c 'curl -m2 -skI https://www.google.com 2>/dev/null | grep -i http'
     ```
 
     Access to the `api.twilio.com` endpoint should be allowed by the DNS policy but not to any other external endpoints like `www.google.com` unless we modify the policy to include that domain name.

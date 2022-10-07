@@ -6,6 +6,8 @@
 
 1. Configure packet capture.
 
+    >One can initiate a packet capture from the Service Graph view by right-clicking on a node in the graph and choosing the `Initiate packet capture` option.
+
     Navigate to `demo/60-packet-capture` and review YAML manifests that represent packet capture definition. Each packet capture is configured by deploing a `PacketCapture` resource that targets endpoints using `selector` and `labels`.
 
     Deploy packet capture definition to capture packets for `dev/nginx` pods.

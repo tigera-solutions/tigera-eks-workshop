@@ -14,7 +14,7 @@
     kubectl apply -f demo/70-deep-packet-inspection/nginx-dpi.yaml
     ```
 
-    >Once the `PacketCapture` resource is deployed, Calico starts capturing packets for all endpoints configured in the `selector` field.
+    >Once the `DeepPacketInspection` resource is deployed, Calico starts capturing packets for all endpoints configured in the `selector` field.
 
     Wait until all DPI pods become `Ready`
 
@@ -27,7 +27,7 @@
     Query `dev/nginx` application with payload that triggers a Snort rule alert.
 
     ```bash
-    kubectl -n dev exec -t centos -- sh -c "curl http://nginx-svc -H 'User-Agent: Mozilla/4.0' -XPOST --data-raw 'smk=1234'"
+    kubectl -n dev exec -t centos -- sh -c "curl http://nginx-svc/secid_canceltoken.cgi -H 'X-CMD: Test' -H 'X-KEY: Test' -XPOST"
     ```
 
 3. Review alerts.

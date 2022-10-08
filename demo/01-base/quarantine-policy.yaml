@@ -1,0 +1,21 @@
+# quarantine policy
+---
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: security.quarantine
+spec:
+  tier: security
+  order: 1
+  selector: "quarantine == 'true'"
+  ingress:
+    - action: Deny
+      source: {}
+      destination: {}
+  egress:
+    - action: Deny
+      source: {}
+      destination: {}
+  types:
+    - Ingress
+    - Egress

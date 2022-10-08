@@ -21,6 +21,7 @@
     ```bash
     kubectl apply -f demo/01-base/allow-kube-dns.yaml
     kubectl apply -f demo/01-base/tiers-pass-policy.yaml
+    kubectl apply -f demo/01-base/quarantine-policy.yaml
     ```
 
 3. Deploy demo applications.

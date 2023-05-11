@@ -1,3 +1,4 @@
 .*
 !/.gitignore
 configs/*.yaml
+**/admission_controller*.pem

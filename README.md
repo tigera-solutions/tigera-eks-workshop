@@ -11,6 +11,7 @@ The intent of this workshop is to educate any person working with EKS cluster in
 In this workshop we are going to focus on these main use cases:
 
 - **East-West security**, leveraging zero-trust security approach.
+- **Namespace isolation**, leveraging Policy Recommendation engine to auto-generate policies to protect applications at namespace level.
 - **Egress access controls**, using DNS policy to access external resources by their fully qualified domain names (FQDN).
 - **Host micro-segmentation**, leveraging Calico policies to protect host ports and host based services.
 - **Observability**, exploring various logs and application level metrics collected by Calico.
@@ -44,15 +45,16 @@ In this workshop we are going to focus on these main use cases:
 - [Module 3: Joining EKS cluster to Calico Cloud](modules/joining-eks-to-calico-cloud.md)
 - [Module 4: Configuring demo applications](modules/configuring-demo-apps.md)
 - [Module 5: Enable application layer monitoring (L7 logs)](modules/enable-l7-logs.md)
-- [Module 6: Using security controls](modules/using-security-controls.md)
-- [Module 7: Using egress access controls](modules/using-egress-access-controls.md)
-- [Module 8: Securing EKS hosts](modules/securing-heps.md)
-- [Module 9: Using observability tools](modules/using-observability-tools.md)
-- [Module 10: Using compliance reports](modules/using-compliance-reports.md)
-- [Module 11: Using alerts](modules/using-alerts.md)
-- [Module 12: Dynamic packet capture](modules/dynamic-packet-capture.md)
-- [Module 13: Deep packet inspection](modules/deep-packet-inspection.md)
-- [Module 14: Vulnerability management](modules/vulnerability-management.md)
+- [Module 6: Namespace isolation](modules/namespace-isolation.md)
+- [Module 7: Using security controls](modules/using-security-controls.md)
+- [Module 8: Using egress access controls](modules/using-egress-access-controls.md)
+- [Module 9: Securing EKS hosts](modules/securing-heps.md)
+- [Module 10: Using observability tools](modules/using-observability-tools.md)
+- [Module 11: Using compliance reports](modules/using-compliance-reports.md)
+- [Module 12: Using alerts](modules/using-alerts.md)
+- [Module 13: Dynamic packet capture](modules/dynamic-packet-capture.md)
+- [Module 14: Deep packet inspection](modules/deep-packet-inspection.md)
+- [Module 15: Vulnerability management](modules/vulnerability-management.md)
 
 ## Cleanup
 

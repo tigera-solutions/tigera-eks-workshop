@@ -1,4 +1,4 @@
-# Module 10: Using compliance reports
+# Module 11: Using compliance reports
 
 **Goal:** Use global reports to satisfy compliance requirements.
 
@@ -58,4 +58,4 @@
       scenarios/40-compliance-reports/cluster-reporter-pods.yaml | kubectl apply -f -
     ```
 
-[Next -> Module 11](../modules/using-alerts.md)
+[Next -> Module 12](../modules/using-alerts.md)

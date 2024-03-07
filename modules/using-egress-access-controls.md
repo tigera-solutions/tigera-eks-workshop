@@ -1,4 +1,4 @@
-# Module 7: Using egress access controls
+# Module 8: Using egress access controls
 
 **Goal:** Configure egress access for specific workloads.
 
@@ -66,4 +66,4 @@
 
     >As a bonus example, you can modify the `external-apis` network set to include `*.google.com` domain name which would allow access to Google subdomains. If you do it, you can would allow acess to subdomains like `www.google.com`, `docs.google.com`, etc.
 
-[Next -> Module 8](../modules/securing-heps.md)
+[Next -> Module 9](../modules/securing-heps.md)

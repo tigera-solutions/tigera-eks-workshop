@@ -49,4 +49,4 @@ For more details on L7 logs, refer to the [official documentation](https://docs.
 
 In module 9 you will review Calico's observability tools and can see application layer information for the `frontend` and `checkout` service in the Service Graph tool.
 
-[Next -> Module 6](../modules/using-security-controls.md)
+[Next -> Module 6](../modules/namespace-isolation.md)

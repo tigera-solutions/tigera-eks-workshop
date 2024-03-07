@@ -1,4 +1,4 @@
-# Module 6: Using security controls
+# Module 7: Using security controls
 
 **Goal:** Leverage network policies to segment connections within Kubernetes cluster and prevent known bad actors from accessing the workloads.
 
@@ -163,4 +163,4 @@
 
     Navigate to `Kibana` -> `Dashboard` -> `Tigera Secure EE Tor-VPN Logs` dashboard to view the results.
 
-[Next -> Module 7](../modules/using-egress-access-controls.md)
+[Next -> Module 8](../modules/using-egress-access-controls.md)

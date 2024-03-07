@@ -1,4 +1,4 @@
-# Module 13: Deep packet inspection
+# Module 14: Deep packet inspection
 
 **Goal:** Configure deep packet inspection for sensitive workloads to allow Calico inspect packets and alert on suspicious traffic.
 
@@ -34,4 +34,4 @@
 
     Navigate to the Alerts view in Tigera UI and review alerts triggered by DPI controller. Calico DPI controller uses [Snort](https://www.snort.org/) signatures to perform DPI checks.
 
-Congratulations! You have finished all the labs in the workshop.
+[Next -> Module 15](../modules/vulnerability-management.md)

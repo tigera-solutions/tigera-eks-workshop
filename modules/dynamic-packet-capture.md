@@ -1,4 +1,4 @@
-# Module 12: Dynamic packet capture
+# Module 13: Dynamic packet capture
 
 **Goal:** Configure packet capture for specific pods and review captured payload.
 
@@ -57,4 +57,4 @@
 
 >Note Packet Captures can also be created and scheduled directly from the Calico UI. Follow the Service Graph method for this alternative [procedure](https://docs.tigera.io/visibility/packetcapture#access-packet-capture-files-via-service-graph).
 
-[Next -> Module 13](../modules/deep-packet-inspection.md)
+[Next -> Module 14](../modules/deep-packet-inspection.md)

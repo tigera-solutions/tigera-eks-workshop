@@ -133,7 +133,7 @@
 
     ```bash
     # try to ping any of the IPs in from the feodo tracker list
-    IP=$(kubectl get globalnetworkset threatfeed.feodo-tracker -ojson | jq .spec.nets[4] | sed -e 's/^"//' -e 's/"$//' -e 's/\/32//')
+    IP=$(kubectl get globalnetworkset threatfeed.feodo-tracker -ojson | jq '.spec.nets[4]' | sed -e 's/^"//' -e 's/"$//' -e 's/\/32//')
     kubectl -n dev exec -t centos -- sh -c "curl -m2 $IP"
     kubectl exec -it $(kubectl get po -l app=loadgenerator -ojsonpath='{.items[0].metadata.name}') -c main -- sh -c "curl -m2 $IP"
     ```

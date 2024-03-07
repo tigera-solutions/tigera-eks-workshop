@@ -26,9 +26,27 @@
 
 3. Enforce policies and test connectivity between the pods.
 
+    Install `curl` utility into the `loadgenerator` pod to use it for testing.
+
+    ```bash
+    kubectl exec -it $(kubectl get po -l app=loadgenerator -ojsonpath='{.items[0].metadata.name}') -c main -- sh -c 'apt-get update && apt-get install -y curl iputils-ping netcat && curl --help'
+    ```
+
+    Create a testing pod in `dev` namespace.
+
+    ```bash
+    kubectl -n dev run --restart=OnFailure --image nicolaka/netshoot netshoot -- sh -c 'while true; do sleep 30; done'
+    ```
+
     Enforce staged policies that were added to the `namespace-isolation` tier and test the connectivity between the pods.
 
     ```bash
+    # test connectivity from dev/netshoot to paymentservice.default service over port 50051
+    kubectl -n dev exec -it netshoot -- sh -c 'nc -zv -w2 paymentservice.default 50051'
+
+    # test connectivity from dev/centos to frontend.default service
+    kubectl -n dev exec -it centos -- sh -c 'curl -m2 -sI frontend.default 2>/dev/null | grep -i http'
+
     # test connectivity from loadgenerator to frontent service within the default namespace
     kubectl exec -it $(kubectl get po -l app=loadgenerator -ojsonpath='{.items[0].metadata.name}') -c main -- sh -c 'curl -m2 -sI frontend 2>/dev/null | grep -i http'
 

@@ -11,7 +11,7 @@
     ```bash
     export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
     export AZS=($(aws ec2 describe-availability-zones --query 'AvailabilityZones[].ZoneName' --output text --region $AWS_REGION))
-    EKS_VERSION="1.21"
+    EKS_VERSION="1.29"
     IAM_ROLE='tigera-workshop-admin'
     
     # check if AWS_REGION is configured

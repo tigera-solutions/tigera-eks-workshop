@@ -115,7 +115,7 @@
 
     ```bash
     # install driver
-    kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.12"
+    kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.33"
 
     # check driver pods status
     kubectl get pods -n kube-system | grep -i ebs-csi

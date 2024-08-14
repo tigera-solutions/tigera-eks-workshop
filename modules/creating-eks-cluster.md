@@ -59,6 +59,9 @@
       region: "${AWS_REGION}"
       version: "${EKS_VERSION}"
 
+    iam:
+      withOIDC: true
+
     availabilityZones: ["${AZS[0]}", "${AZS[1]}", "${AZS[2]}"]
 
     managedNodeGroups:
@@ -69,8 +72,8 @@
       # t3.large has max 3 interfaces and allows up to 12 IPs per interface, therefore can run up to 36 pods per node
       # see: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI
       instanceType: "t3.large"
-      ssh:
-        # uncomment lines below to allow SSH access to the nodes using existing EC2 key pair
+      # uncomment lines below to allow SSH access to the nodes using existing EC2 key pair
+      #ssh:
         #publicKeyName: ${KEYPAIR_NAME}
         #allow: true
 
